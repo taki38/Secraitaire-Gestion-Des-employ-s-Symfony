@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Entity;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 use App\Repository\EmployeRepository;
 use Doctrine\ORM\Mapping as ORM;
@@ -26,6 +28,23 @@ class Employe
      * @ORM\OneToOne(targetEntity=Image::class, cascade={"persist", "remove"})
      */
     private $Image;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $lastname;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $sector;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $email;
+
+
 
     public function getId(): ?int
     {
@@ -55,4 +74,44 @@ class Employe
 
         return $this;
     }
+
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname(string $lastname): self
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    public function getSector(): ?string
+    {
+        return $this->sector;
+    }
+
+    public function setSector(string $sector): self
+    {
+        $this->sector = $sector;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+
+
+
 }

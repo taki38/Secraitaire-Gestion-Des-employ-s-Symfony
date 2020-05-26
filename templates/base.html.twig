@@ -3,10 +3,19 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <link  href="{{ asset('css/styles.css') }}" rel="stylesheet">
+        {% endblock %}
     </head>
+
+    {% include 'parts/menu.html.twig' %}
+
     <body>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
+    <footer>
+        {% include 'parts/footer.html.twig' %}
+    </footer>
+
 </html>
